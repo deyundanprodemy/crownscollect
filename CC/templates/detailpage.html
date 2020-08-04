@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrownsCollections</title>
+</head>
+<style>
+#headtitle{
+background-color:black;
+}
+#mainlogo{
+max-width:140px;
+width:100%;
+}
+.catbox{
+background-color:black;
+color:white;
+font-size:14px;
+text-decoration:none;
+margin-top:5px;
+padding-top:2px;
+border-radius:4px;
+}
+div.category{
+overflow: auto;
+background-color:black;
+white-space:nowrap;
+margin-left:3px;
+margin-right:3px;
+margin-bottom:3px;
+border-radius:3px;
+border:1px solid gray;
+}
+div.category a{
+display:inline-block;
+font-size:14px;
+color:white;
+text-align:center;
+text-decoration:none;
+padding:7px;
+}
+div.category a:hover{
+background-color:gray;
+}
+.pics{
+overflow: auto;
+background-color:#F1F1F1;
+white-space:nowrap;
+margin-left:3px;
+margin-right:3px;
+margin-bottom:6px;
+border-radius:3px;
+}
+#fot{
+background-color:#BA9500;
+color:white;
+font-size:12px;
+text-align:center;
+margin-top:5px;
+}
+
+body{
+background-color:#F1F1F1;
+font-size:13px;
+font-family:arial;
+}
+#card{
+background-color:white;
+color:green;
+font-size:12px;
+padding-bottom:6px;
+margin-top:5px;
+border-radius:3px;
+}
+.fas{
+background-color:black;
+color:#F0C000;
+font-size:14px;
+border-radius:3px;
+margin-top:5px;
+padding-top:6px;
+}
+.fdetails{
+text-align:center;
+color:grey;
+padding-left:5px;
+font-size:12px;
+}
+#letter{
+color:black;
+display:inline-block;
+text-decoration:none;
+padding:2px;
+}
+.fasbox{
+color:black;
+background-color:white;
+margin-top:5px;
+border-radius:3px;
+}
+#picture1{
+max-width:180px;
+width:100%;
+height:260px;
+margin-top:5px;
+margin-left:5px;
+border-radius:3px;
+}
+#tit2{color:black;
+padding:2px;
+padding-bottom:13px;
+font-size:12px;
+font-weight:bold;
+}
+
+</style>
+<body>
+<!--header logo-->
+<div id='headtitle'>
+<a href="{% url 'home' %}" >
+    <img id='mainlogo' src='/media/q4.png' alt='CrownsCollections.com.ng'
+        height=60px;><a/>
+</div>
+<!--headerlogo ends  -- NAV start-->
+<img  style="border-radius:3px;" src='/media/q3.png' alt='CrownsCollections.com.ng'
+        width=100%;>
+<!--categories-->
+<div class="catbox">
+<a style="text-decoration:none;" href="#Category">
+    <label style="padding:6px; color:#F0C000;text-decoration:none;">Category</label>
+        </a>
+    <div class="category ">
+        <a href="{% url 'MaleWears' %}">Male wears</a>
+        <a href="{% url 'FemaleWears' %}">Female wears</a>
+        <a href="{% url 'T_Shirts' %}">T-Shirts</a>
+        <a href="{% url 'Joggers' %}">Joggers</a>
+        <a href="{% url 'Trousers' %}">Trousers</a>
+        <a href="{% url 'Gowns' %}">Gowns</a>
+        <a href="{% url 'Hoods' %}">Hoods</a>
+        <a href="{% url 'Vintages' %}">Vintages</a>
+        <a href="{% url 'FootWears' %}">foot wears</a>
+    </div>
+</div>
+<!--categories ends-->
+
+<!--Features-->
+
+<!--Top products-->
+<div class="fas">
+<label style="padding:6px;padding-bottom:4px;">{{blog.BrandName}}</label><br>
+<!--main body-->
+
+<div id='card'>
+    <div class='pics'>
+    <img id="picture1" src="{{ blog.Pic1.url }}" >
+    <img id="picture1" src="{{ blog.Pic2.url }}" >
+    <img id="picture1" src="{{ blog.Pic3.url }}" >
+    </div>
+    <label id="tit2"><span style="padding-left:6px; color:grey; font-weight:normal;">Brand |</span> {{blog.BrandName}}</label><br>
+    <label style="color:black ; font-size:20px;padding-left:6px;">
+        <img style="padding-left:4px;" src='/media/pppp.png' alt='Price' width=10px; height="15px">
+        {{blog.Price}}</label>
+
+</div>
+</div>
+    <div class="fasbox">
+        <label id="tit2"><span style="color:grey; font-weight:normal;">Description</span><hr>
+            <span style="font-weight:normal;">{{blog.Description }}</span></label>
+    </div>
+    <!--Features-->
+<div class="fas">
+<label style="padding:6px;">place an order </label>
+    <div class="fasbox">
+
+<a href="http://facebook.com/marketitNG"><label id="letter">
+    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
+    <br><span class="fdetails">facebook</span>
+</label><a/>
+<a href="#instagram"><label id="letter">
+    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">instagram </span>
+</label><a/>
+<a href="#telegram"><label id="letter">
+    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">telegram </span>
+</label><a/>
+<label id="letter" title="090">
+    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">whatsapp </span>
+</label>
+<label id="letter" title="090">
+    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">contact </span>
+</label>
+<a href="mailto:obikpidaniel@gmail.com"><label id="letter">
+    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
+    <br><span class="fdetails">send a mail</span>
+</label><a/>
+
+    </div>
+</div>
+<!--also-available-->
+<div class="fas">
+<label style="padding:6px;color:white;">Also available... </label>
+    <div class="fasbox">
+{% for collect in objects.filter.Status %}
+        <label><span style="color:grey;">Brand |</span> {{collect.BrandName}}</label>
+{% endfor %}
+    </div>
+</div>
+
+<!--footer segment-->
+<div id='fot'>
+<a href="{% url 'home' %}" >
+    <img style="border-radius:3px;" src='/media/q3.png' alt='CrownsCollections.com.ng' width=100%;></a>
+<p style="font-family:'segoe script';" >...defining you by your wears</p>
+<br>
+</div>
+
+</body>
+</html>

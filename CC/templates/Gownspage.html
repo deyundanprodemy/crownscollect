@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gown</title>
+</head>
+<style>
+#headtitle{
+background-color:black;
+}
+#mainlogo{
+max-width:140px;
+width:100%;
+}
+.search{color:grey;
+width:150px;
+font-size:12px;
+border-radius:13px;
+margin-left:3px;
+}
+.catbox{
+background-color:black;
+color:white;
+font-size:14px;
+text-decoration:none;
+margin-top:5px;
+padding-top:2px;
+border-radius:4px;
+}
+div.category{
+overflow: auto;
+background-color:black;
+white-space:nowrap;
+margin-left:3px;
+margin-right:3px;
+margin-top:3px;
+margin-bottom:3px;
+border-radius:3px;
+border:1px solid grey;
+}
+div.category a{
+display:inline-block;
+font-size:14px;
+color:white;
+text-align:center;
+text-decoration:none;
+padding:7px;
+}
+div.category a:hover{
+background-color:gray;
+}
+
+#pic{
+padding-top:10px;
+display:table;
+margin-left:auto;
+margin-right:auto;
+}
+#fot{
+background-color:#BA9500;
+color:white;
+font-size:12px;
+text-align:center;
+margin-top:5px;
+}
+
+body{
+background-color:#F1F1F1;
+font-size:13px;
+font-family:arial;
+}
+#card{
+background-color:white;
+color:green;
+font-size:12px;
+padding-bottom:6px;
+margin-top:5px;
+border-radius:3px;
+}
+.fas{
+background-color:black;
+color:#F0C000;
+font-size:14px;
+border-radius:3px;
+margin-top:5px;
+padding-top:6px;
+padding-bottom:2px;
+}
+#letter{
+color:black;
+display:inline-block;
+text-decoration:none;
+padding:2px;
+}
+.fasbox{
+color:black;
+background-color:white;
+margin-top:5px;
+border-radius:3px;
+}
+.fdetails{
+text-align:center;
+color:grey;
+padding-left:5px;
+font-size:12px;
+}
+#picture1{
+max-width:180px;
+width:100%;
+height:260px;
+padding-right:3px;
+padding-bottom:6px;
+border-radius:3px;
+background-color:#F1F1F1;
+}
+.pics{
+background-color:white;
+margin-left:6px;
+padding-bottom:6px;
+padding-top:6px;
+border-radius:3px;
+}
+#tit2{color:black;
+padding:2px;
+padding-bottom:13px;
+padding-left:6px;
+font-size:12px;
+font-weight:bold;
+}
+
+*
+.mySlides {display: none;}
+
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+.dot {
+  display: inline-block;
+  transition: background-color 5.6s ease;
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 3.5s;
+  animation-name: fade;
+  animation-duration: 3.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@media only screen and (max-width: 100px) {
+  .text {font-size: 11px}
+}
+
+
+</style>
+<body>
+<!--header logo-->
+<div id='headtitle'>
+<a href="{% url 'home' %}" >
+    <img id='mainlogo' src='/media/q4.png' alt='CrownsCollections.com.ng'
+        height=60px;><a/>
+</div>
+<!--headerlogo ends  -- NAV start-->
+
+<div >
+<div class="mySlides fade">
+  <img src='/media/qt.png' style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src='/media/qt2.png' style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src='/media/qt3.png' style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src='/media/q1.png' style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src='/media/qt4.png' style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src='/media/qt5.png' style="width:100%">
+</div>
+
+</div>
+
+<div>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 10000); // Change image every 10 seconds
+}
+</script>
+
+</div>
+
+
+<!--categories-->
+<div class="catbox">
+<a style="text-decoration:none;" href="#Category">
+    <label style="padding:6px;color:#F0C000;text-decoration:none;">Category</label>
+        </a>
+    <div class="category ">
+        <a href="{% url 'MaleWears' %}">Male wears</a>
+        <a href="{% url 'FemaleWears' %}">Female wears</a>
+        <a href="{% url 'T_Shirts' %}">T-Shirts</a>
+        <a href="{% url 'Joggers' %}">Joggers</a>
+        <a href="{% url 'Trousers' %}">Trousers</a>
+        <a href="{% url 'Gowns' %}">Gowns</a>
+        <a href="{% url 'Hoods' %}">Hoods</a>
+        <a href="{% url 'Vintages' %}">Vintages</a>
+        <a href="{% url 'FootWears' %}">foot wears</a>
+    </div>
+</div>
+<!--categories ends-->
+
+<!--Features-->
+<div class="fas">
+<label style="padding:6px;">Features</label>
+    <div class="fasbox">
+
+<a href="http://facebook.com/marketitNG"><label id="letter">
+    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
+    <br><span class="fdetails">facebook</span>
+</label><a/>
+<a href="#instagram"><label id="letter">
+    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">instagram </span>
+</label><a/>
+<a href="#telegram"><label id="letter">
+    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">telegram </span>
+</label><a/>
+<label id="letter" title="090">
+    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">whatsapp </span>
+</label>
+<label id="letter" title="090">
+    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails" >contact </span>
+</label>
+<a href="mailto:obikpidaniel@gmail.com"><label id="letter">
+    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
+    <br><span class="fdetails">send a mail</span>
+</label><a/>
+
+    </div>
+</div>
+<!--Top products-->
+<div class="fas">
+<label style="padding:6px;padding-bottom:4px;">Gowns</label><br>
+<!--main body-->
+
+</div>
+{% for collect in object_list %}
+<div id='card'>
+    <a style="text-decoration:none;" href='{% url "post_detail"  collect.Slug %}'>
+        <div class="pics">
+    <img id="picture1" src="{{ collect.Pic1.url }}" ><br>
+        </div>
+    <label id="tit2"><span style="color:grey; font-weight:normal;">Brand |</span> {{collect.BrandName}}</label><br>
+    <label style="color:black ; font-size:18px;">
+        <img style="padding-left:6px;" src='/media/pppp.png' alt='Price' width=10px; height="15px">
+        {{collect.Price}}</label><br>
+    </a>
+</div>
+{% endfor %}
+<!--orders...-->
+<div class="fas">
+<label style="padding:6px;">Place your order</label>
+    <div class="fasbox">
+
+<a href="http://facebook.com/marketitNG"><label id="letter">
+    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
+    <br><span class="fdetails">facebook</span>
+</label><a/>
+<a href="#instagram"><label id="letter">
+    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">instagram </span>
+</label><a/>
+<a href="#telegram"><label id="letter">
+    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">telegram </span>
+</label><a/>
+<label id="letter" title="090">
+    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">whatsapp </span>
+</label>
+<label id="letter" title="090">
+    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails" >contact </span>
+</label>
+<a href="mailto:obikpidaniel@gmail.com"><label id="letter">
+    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
+    <br><span class="fdetails">send a mail</span>
+</label><a/>
+
+    </div>
+</div>
+<!--footer segment-->
+<div id='fot'>
+<a href="{% url 'home' %}" >
+    <img style="border-radius:3px;" src='/media/q3.png' alt='CrownsCollections.com.ng' width=100%;></a>
+<p style="font-family:'segoe script';" >...defining you by your wears</p>
+<br>
+</div>
+
+</body>
+</html>
