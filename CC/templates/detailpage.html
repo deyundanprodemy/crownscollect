@@ -73,6 +73,13 @@ padding-bottom:6px;
 margin-top:5px;
 border-radius:3px;
 }
+.Special{
+overflow-x: auto;
+overflow-y: hidden;
+white-space:nowrap;
+border-radius:3px;
+margin-top:5px;
+}
 .fas{
 background-color:black;
 color:#F0C000;
@@ -99,6 +106,14 @@ background-color:white;
 margin-top:5px;
 border-radius:3px;
 }
+.pictureS{
+width:140px;
+height:160px;
+padding-right:3px;
+padding-bottom:6px;
+border-radius:3px;
+background-color:#F1F1F1;
+}
 #picture1{
 max-width:180px;
 width:100%;
@@ -122,9 +137,11 @@ font-weight:bold;
     <img id='mainlogo' src='/media/q4.png' alt='CrownsCollections.com.ng'
         height=60px;><a/>
 </div>
-<!--headerlogo ends  -- NAV start-->
-<img  style="border-radius:3px;" src='/media/q3.png' alt='CrownsCollections.com.ng'
+<!--headerlogo ends  -- ad start-->
+
+<img  style="border-radius:3px;" src='/media/qt8.png' alt='CrownsCollections'
         width=100%;>
+
 <!--categories-->
 <div class="catbox">
 <a style="text-decoration:none;" href="#Category">
@@ -146,74 +163,107 @@ font-weight:bold;
 
 <!--Features-->
 
-<!--Top products-->
-<div class="fas">
-<label style="padding:6px;padding-bottom:4px;">{{blog.BrandName}}</label><br>
+<!--products details-->
+<div class="fas" style="background-color:gold;">
+<label style="padding:6px;padding-bottom:4px; color:black;">{{details.BrandName}}</label><br>
 <!--main body-->
 
-<div id='card'>
-    <div class='pics'>
-    <img id="picture1" src="{{ blog.Pic1.url }}" >
-    <img id="picture1" src="{{ blog.Pic2.url }}" >
-    <img id="picture1" src="{{ blog.Pic3.url }}" >
-    </div>
-    <label id="tit2"><span style="padding-left:6px; color:grey; font-weight:normal;">Brand |</span> {{blog.BrandName}}</label><br>
-    <label style="color:black ; font-size:20px;padding-left:6px;">
-        <img style="padding-left:4px;" src='/media/pppp.png' alt='Price' width=10px; height="15px">
-        {{blog.Price}}</label>
+    <div id='card'>
+        <div class='pics'>
+        <img id="picture1" src="{{ details.Pic1.url }}" >
+        <img id="picture1" src="{{ details.Pic2.url }}" >
+        <img id="picture1" src="{{ details.Pic3.url }}" >
+        </div>
+        <label id="tit2"><span style="padding-left:6px; color:grey; font-weight:normal;">Brand |</span>
+            {{details.BrandName}}</label><br>
+        <label style="color:black ; font-size:20px;padding-left:6px;">
+            <img style="padding-left:4px;" src='/media/pppp.png' alt='Price' width=10px; height="15px">
+            {{details.Price}}</label>
 
-</div>
+    </div>
 </div>
     <div class="fasbox">
         <label id="tit2"><span style="color:grey; font-weight:normal;">Description</span><hr>
-            <span style="font-weight:normal;">{{blog.Description }}</span></label>
+            <span style="font-weight:normal;">{{details.Description }}</span></label>
     </div>
-    <!--Features-->
-<div class="fas">
-<label style="padding:6px;">place an order </label>
+
+    <!--order..-->
+<div class="fas" style="background-color:gold;">
+<label style="padding:6px;color:black;">Place an order </label>
     <div class="fasbox">
 
-<a href="http://facebook.com/marketitNG"><label id="letter">
-    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">facebook</span>
+<a href="#facebook"><label id="letter" title="Crowns Collections">
+    <img  src='/media/fb.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
+    <br><span class="fdetails">Facebook</span>
 </label><a/>
-<a href="#instagram"><label id="letter">
-    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">instagram </span>
+<a href="#instagram"><label id="letter" title="Crowns Collections">
+    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Instagram </span>
 </label><a/>
-<a href="#telegram"><label id="letter">
-    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">telegram </span>
+<a href="#telegram"><label id="letter" title="Crowns Collections">
+    <img  src='/media/tele.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Telegram </span>
 </label><a/>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">whatsapp </span>
+<label id="letter" title="+234-9022432810">
+    <img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Whatsapp </span>
 </label>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">contact </span>
+<label id="letter" title="09022432810">
+    <img  src='/media/call.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails" >Contact </span>
 </label>
 <a href="mailto:obikpidaniel@gmail.com"><label id="letter">
-    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
-    <br><span class="fdetails">send a mail</span>
+    <img  src='/media/gmail.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
+    <br><span class="fdetails">Send a mail</span>
 </label><a/>
 
     </div>
 </div>
+
 <!--also-available-->
 <div class="fas">
 <label style="padding:6px;color:white;">Also available... </label>
-    <div class="fasbox">
-{% for collect in objects.filter.Status %}
-        <label><span style="color:grey;">Brand |</span> {{collect.BrandName}}</label>
-{% endfor %}
+    <div class="Special" style="background-color:black;">
+
+    {% for aval in avaliable %}
+        <div style="display:inline-block;">
+    <a style="text-decoration:none;" href='{% url "post_detail"  aval.Slug %}'>
+        <div class="pics">
+    <img class="pictureS" src="{{ aval.Pic1.url }}" ><br>
+        </div>
+    <div id="tit2" style="text-align:center;">
+        <span style="color:white; font-weight:normal;"> {{aval.BrandName}}</span></div>
+    </a>
     </div>
-</div>
+    {% endfor %}
+
+    </div>
+</div><br>
+    <!--socials-->
+<label style="padding:6px;color:lightgrey;">Share...</label>
+    <div class="fasbox">
+
+<a href="http://facebook.com/sharer/sharer.php?u={{reuest.get_full_path}}"><label id="letter">
+    <img  src='/media/fb.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
+    <br><span class="fdetails">Facebook</span>
+</label><a/>
+<a href="#instagram"><label id="letter">
+    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Instagram </span>
+</label><a/>
+<a href="#telegram"><label id="letter">
+    <img  src='/media/tele.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Telegram </span>
+</label><a/>
+<label id="letter" title="+234-9022432810">
+    <img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Whatsapp </span>
+</label>
+
+    </div>
 
 <!--footer segment-->
 <div id='fot'>
-<a href="{% url 'home' %}" >
-    <img style="border-radius:3px;" src='/media/q3.png' alt='CrownsCollections.com.ng' width=100%;></a>
 <p style="font-family:'segoe script';" >...defining you by your wears</p>
 <br>
 </div>

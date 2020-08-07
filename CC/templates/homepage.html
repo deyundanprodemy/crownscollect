@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="male wears, female wears, T-shirts, CrownsCollections">
     <title>CrownsCollections</title>
 </head>
 <style>
@@ -71,6 +72,13 @@ background-color:#F1F1F1;
 font-size:13px;
 font-family:arial;
 }
+.Special{
+overflow-x: auto;
+overflow-y: hidden;
+white-space:nowrap;
+border-radius:3px;
+margin-top:5px;
+}
 #card{
 background-color:white;
 color:green;
@@ -78,12 +86,14 @@ font-size:12px;
 padding-bottom:6px;
 margin-top:5px;
 border-radius:3px;
-position:relative
+position:relative;
 float:left;
+overflow:auto;
+white-space:nowrap;
 }
 .fas{
 background-color:black;
-color:#F0C000;
+color:gold;
 font-size:14px;
 border-radius:3px;
 margin-top:5px;
@@ -108,10 +118,18 @@ color:grey;
 padding-left:5px;
 font-size:12px;
 }
+.pictureS{
+width:140px;
+height:160px;
+padding-right:3px;
+padding-bottom:6px;
+border-radius:3px;
+background-color:#F1F1F1;
+}
 #picture1{
 max-width:180px;
 width:100%;
-height:260px;
+height:240px;
 padding-right:3px;
 padding-bottom:6px;
 border-radius:3px;
@@ -255,9 +273,7 @@ function showSlides() {
 
 <!--categories-->
 <div class="catbox">
-<a style="text-decoration:none;" href="#Category">
-    <label style="padding:6px;color:#F0C000;text-decoration:none;">Category</label>
-        </a>
+<label style="padding:6px;color:#F0C000;">Category</label>
     <div class="category ">
         <a href="{% url 'MaleWears' %}">Male wears</a>
         <a href="{% url 'FemaleWears' %}">Female wears</a>
@@ -272,35 +288,22 @@ function showSlides() {
 </div>
 <!--categories ends-->
 
-<!--Features-->
-<div class="fas">
-<label style="padding:6px;">Features</label>
-    <div class="fasbox">
+<!--Special-->
+<div class="fas" style="background-color:gold;">
+<label style="padding:6px;color:black;">Special Offers</label>
+    <div class="Special" style="background-color:black;">
 
-<a href="http://facebook.com/marketitNG"><label id="letter">
-    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">facebook</span>
-</label><a/>
-<a href="#instagram"><label id="letter">
-    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">instagram </span>
-</label><a/>
-<a href="#telegram"><label id="letter">
-    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">telegram </span>
-</label><a/>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">whatsapp </span>
-</label>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails" >contact </span>
-</label>
-<a href="mailto:obikpidaniel@gmail.com"><label id="letter">
-    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
-    <br><span class="fdetails">send a mail</span>
-</label><a/>
+    {% for offers in Special_offers %}
+        <div style="display:inline-block;">
+    <a style="text-decoration:none;" href='{% url "post_detail"  offers.Slug %}'>
+        <div class="pics">
+    <img class="pictureS" src="{{ offers.Pic1.url }}" ><br>
+        </div>
+    <label id="tit2"><span style="color:grey; font-weight:normal;">Brand |</span>
+        <span style="color:white;"> {{offers.BrandName}}</span></label>
+    </a>
+    </div>
+    {% endfor %}
 
     </div>
 </div>
@@ -311,7 +314,7 @@ function showSlides() {
 
 </div>
 
-{% for collect in object_list %}
+{% for collect in Home %}
 <div>
     <div id='card' >
     <a style="text-decoration:none;" href='{% url "post_detail"  collect.Slug %}'>
@@ -327,34 +330,34 @@ function showSlides() {
 </div>
 {% endfor %}
 
-<!--orders...-->
-<div class="fas" style="position:relative;float:left;width:100%;">
-<label style="padding:6px;">Place your order</label>
+<!--socials...-->
+<div class="fas" style="position:relative;float:left;width:100%;background-color:gold;">
+<label style="padding:6px;color:black;">Socials</label>
     <div class="fasbox">
 
-<a href="http://facebook.com/sharer/sharer.php?u={% url 'home' %}"><label id="letter">
-    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">facebook</span>
+<a href="http://facebook.com/sharer/sharer.php?u={{reuest.get_full_path}}"><label id="letter" title="Crowns Collections">
+    <img  src='/media/fb.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
+    <br><span class="fdetails">Facebook</span>
 </label><a/>
-<a href="#instagram"><label id="letter">
-    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">instagram </span>
+<a href="#instagram"><label id="letter" title="Crowns Collections">
+    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Instagram </span>
 </label><a/>
-<a href="#telegram"><label id="letter">
-    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">telegram </span>
+<a href="#telegram"><label id="letter" title="Crowns Collections">
+    <img  src='/media/tele.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Telegram </span>
 </label><a/>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">whatsapp </span>
+<label id="letter" title="+234-9022432810">
+    <img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Whatsapp </span>
 </label>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails" >contact </span>
+<label id="letter" title="09022432810">
+    <img  src='/media/call.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails" >Contact </span>
 </label>
 <a href="mailto:obikpidaniel@gmail.com"><label id="letter">
-    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
-    <br><span class="fdetails">send a mail</span>
+    <img  src='/media/gmail.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
+    <br><span class="fdetails">Send a mail</span>
 </label><a/>
 
     </div>

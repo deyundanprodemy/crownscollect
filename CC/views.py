@@ -7,49 +7,81 @@ class PostHome(generic.ListView):
     queryset=CrownsPost.objects.all().order_by('-Created_on')
     template_name='homepage.html'
 
-class PostDetails(generic.DetailView):
-    model = CrownsPost
-    template_name = 'detailpage.html'
+def Homepage (request):
+    Home = CrownsPost.objects.all()
+    MaleWears = CrownsPost.objects.filter(Status=2)
+    FemaleWears = CrownsPost.objects.filter(Status=3)
+    T_Shirts = CrownsPost.objects.filter(Status=4)
+    Joggers = CrownsPost.objects.filter(Status=5)
+    Trousers = CrownsPost.objects.filter(Status=6)
+    Gowns = CrownsPost.objects.filter(Status=7)
+    Hoods = CrownsPost.objects.filter(Status=8)
+    Vintages = CrownsPost.objects.filter(Status=9)
+    Foot_wears = CrownsPost.objects.filter(Status=10)
+    Special_offers = CrownsPost.objects.filter(Status=11)
+
+    context = {'Home': Home, 'Special_offers': Special_offers}
+    return render(request, 'homepage.html', context=context)
 
 def PostDetail(request,slug):
     template_name = 'detailpage.html'
     post=get_object_or_404(CrownsPost, Slug=slug)
+    avaliable=CrownsPost.objects.all().order_by('Created_on')
+    context = {'avaliable': avaliable,'details':post}
 
-    return render(request,template_name,{'blog':post})
+    return render(request,template_name, context=context)
 
-class MaleWears(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=2).order_by('-Created_on')
-    template_name='MaleWearspage.html'
+def MaleWears(request):
+    MaleWears = CrownsPost.objects.filter(Status=2)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'MaleWears': MaleWears}
+    return render(request, 'MaleWearspage.html', context=context)
 
-class FemaleWears(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=3).order_by('-Created_on')
-    template_name='FemaleWearspage.html'
+def FemaleWears(request):
+    FemaleWears = CrownsPost.objects.filter(Status=3)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'FemaleWears': FemaleWears}
+    return render(request, 'FemaleWearspage.html', context=context)
 
-class T_Shirts(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=4).order_by('-Created_on')
-    template_name='T_Shirtspage.html'
+def T_Shirts(request):
+    T_Shirts = CrownsPost.objects.filter(Status=4)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'T_Shirts': T_Shirts}
+    return render(request, 'T_Shirtspage.html', context=context)
 
-class Joggers(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=5).order_by('-Created_on')
-    template_name='Joggerspage.html'
+def Joggers(request):
+    Joggers = CrownsPost.objects.filter(Status=5)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'Joggers': Joggers}
+    return render(request, 'Joggerspage.html', context=context)
 
-class Trousers(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=6).order_by('-Created_on')
-    template_name='Trouserspage.html'
+def Trousers(request):
+    Trousers = CrownsPost.objects.filter(Status=6)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'Trousers': Trousers}
+    return render(request, 'Trouserspage.html', context=context)
 
-class Gowns(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=7).order_by('-Created_on')
-    template_name='Gownspage.html'
+def Gowns(request):
+    Gowns = CrownsPost.objects.filter(Status=7)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'Gowns': Gowns}
+    return render(request, 'Gownspage.html', context=context)
 
-class Hoods(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=8).order_by('-Created_on')
-    template_name='Hoodspage.html'
+def Hoods(request):
+    Hoods = CrownsPost.objects.filter(Status=8)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'Hoods': Hoods}
+    return render(request, 'Hoodspage.html', context=context)
 
-class Vintages(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=9).order_by('-Created_on')
-    template_name='Vintagespage.html'
+def Vintages(request):
+    Vintages = CrownsPost.objects.filter(Status=9)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'Vintages': Vintages}
+    return render(request, 'Vintagespage.html', context=context)
 
-class FootWears(generic.ListView):
-    queryset=CrownsPost.objects.filter(Status=10).order_by('-Created_on')
-    template_name='FootWearspage.html'
+def FootWears(request):
+    FootWears = CrownsPost.objects.filter(Status=10)
+    Home = CrownsPost.objects.all()
+    context = {'Home': Home, 'FootWears': FootWears}
+    return render(request, 'FootWearspage.html', context=context)
 

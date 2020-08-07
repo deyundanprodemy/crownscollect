@@ -254,45 +254,13 @@ function showSlides() {
 </div>
 <!--categories ends-->
 
-<!--Features-->
-<div class="fas">
-<label style="padding:6px;">Features</label>
-    <div class="fasbox">
-
-<a href="http://facebook.com/marketitNG"><label id="letter">
-    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">facebook</span>
-</label><a/>
-<a href="#instagram"><label id="letter">
-    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">instagram </span>
-</label><a/>
-<a href="#telegram"><label id="letter">
-    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">telegram </span>
-</label><a/>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">whatsapp </span>
-</label>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails" >contact </span>
-</label>
-<a href="mailto:obikpidaniel@gmail.com"><label id="letter">
-    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
-    <br><span class="fdetails">send a mail</span>
-</label><a/>
-
-    </div>
-</div>
 <!--Top products-->
 <div class="fas">
 <label style="padding:6px;padding-bottom:4px;">Hoods</label><br>
 <!--main body-->
 
 </div>
-{% for collect in object_list %}
+{% for collect in Hoods %}
 <div id='card'>
     <a style="text-decoration:none;" href='{% url "post_detail"  collect.Slug %}'>
         <div class="pics">
@@ -305,34 +273,34 @@ function showSlides() {
     </a>
 </div>
 {% endfor %}
-<!--orders...-->
-<div class="fas">
-<label style="padding:6px;">Place your order</label>
+<!--socials...-->
+<div class="fas" style="position:relative;float:left;width:100%;background-color:gold;">
+<label style="padding:6px;color:black;">Socials</label>
     <div class="fasbox">
 
-<a href="http://facebook.com/marketitNG"><label id="letter">
-    <img  src='/media/star.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">facebook</span>
+<a href="http://facebook.com/sharer/sharer.php?u={{reuest.get_full_path}}"><label id="letter">
+    <img  src='/media/fb.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
+    <br><span class="fdetails">Facebook</span>
 </label><a/>
 <a href="#instagram"><label id="letter">
-    <img  src='/media/star.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">instagram </span>
+    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Instagram </span>
 </label><a/>
 <a href="#telegram"><label id="letter">
-    <img  src='/media/star.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">telegram </span>
+    <img  src='/media/tele.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Telegram </span>
 </label><a/>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">whatsapp </span>
+<label id="letter" title="+234-9022432810">
+    <img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails">Whatsapp </span>
 </label>
-<label id="letter" title="090">
-    <img  src='/media/star.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails" >contact </span>
+<label id="letter" title="09022432810">
+    <img  src='/media/call.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
+    <br><span class="fdetails" >Contact </span>
 </label>
 <a href="mailto:obikpidaniel@gmail.com"><label id="letter">
-    <img  src='/media/star.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
-    <br><span class="fdetails">send a mail</span>
+    <img  src='/media/gmail.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
+    <br><span class="fdetails">Send a mail</span>
 </label><a/>
 
     </div>
