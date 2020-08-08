@@ -1,0 +1,1 @@
+web: gunicorn CrownsCollection.wsgi --log-file
