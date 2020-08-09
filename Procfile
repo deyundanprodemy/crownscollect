@@ -1,1 +1,1 @@
-web: gunicorn CrownsCollection.wsgi --log-file
+web: gunicorn CrownsCollection.wsgi --log-file -
