@@ -10,8 +10,8 @@
 background-color:black;
 }
 #mainlogo{
-max-width:140px;
-width:100%;
+width:160px;
+padding-left:3%;
 }
 .search{color:grey;
 width:150px;
@@ -37,7 +37,7 @@ margin-right:3px;
 margin-top:3px;
 margin-bottom:3px;
 border-radius:3px;
-border:1px solid grey;
+border:1px solid orange;
 }
 div.category a{
 display:inline-block;
@@ -58,7 +58,7 @@ margin-left:auto;
 margin-right:auto;
 }
 #fot{
-background-color:#BA9500;
+background-color:orange;
 color:white;
 font-size:12px;
 text-align:center;
@@ -77,10 +77,14 @@ font-size:12px;
 padding-bottom:6px;
 margin-top:5px;
 border-radius:3px;
+position:relative;
+float:left;
+overflow:auto;
+white-space:nowrap;
 }
 .fas{
 background-color:black;
-color:#F0C000;
+color:orange;
 font-size:14px;
 border-radius:3px;
 margin-top:5px;
@@ -106,9 +110,8 @@ padding-left:5px;
 font-size:12px;
 }
 #picture1{
-max-width:180px;
-width:100%;
-height:260px;
+width:140px;
+height:160px;
 padding-right:3px;
 padding-bottom:6px;
 border-radius:3px;
@@ -127,6 +130,22 @@ padding-bottom:13px;
 padding-left:6px;
 font-size:12px;
 font-weight:bold;
+}
+.tooltip{
+possition:relative;
+display:inline-block;
+}
+.tooltip .tooltiptext{
+visibility:hidden;
+position:absolute;
+color:white;
+background-color:orange;
+border-radius:6px;
+z-index:1;
+padding:5px;
+}
+.tooltip:hover .tooltiptext{
+visibility:visible;
 }
 
 *
@@ -169,43 +188,23 @@ font-weight:bold;
 <!--header logo-->
 <div id='headtitle'>
 <a href="{% url 'home' %}" >
-    <img id='mainlogo' src='/media/q4.png' alt='CrownsCollections.com.ng'
-        height=60px;><a/>
+    <img id='mainlogo' src='/media/c_logo.jpg' alt='CrownsCollections.com.ng'
+        height=100px;><a/>
 </div>
 <!--headerlogo ends  -- NAV start-->
 
 <div >
 <div class="mySlides fade">
-  <img src='/media/qt.png' style="width:100%">
+  <img src='/media/roy2.png' style="width:100%">
 </div>
 
 <div class="mySlides fade">
-  <img src='/media/qt2.png' style="width:100%">
-</div>
-
-<div class="mySlides fade">
-  <img src='/media/qt3.png' style="width:100%">
-</div>
-
-<div class="mySlides fade">
-  <img src='/media/q1.png' style="width:100%">
-</div>
-
-<div class="mySlides fade">
-  <img src='/media/qt4.png' style="width:100%">
-</div>
-
-<div class="mySlides fade">
-  <img src='/media/qt5.png' style="width:100%">
+  <img src='/media/c_logo2.jpg' style="width:100%">
 </div>
 
 </div>
 
 <div>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
 </div>
@@ -238,7 +237,7 @@ function showSlides() {
 <!--categories-->
 <div class="catbox">
 <a style="text-decoration:none;" href="#Category">
-    <label style="padding:6px;color:#F0C000;text-decoration:none;">Category</label>
+    <label style="padding:6px;color:orange;text-decoration:none;">Category</label>
         </a>
     <div class="category ">
         <a href="{% url 'MaleWears' %}">Male wears</a>
@@ -274,42 +273,39 @@ function showSlides() {
 </div>
 {% endfor %}
 <!--socials...-->
-<div class="fas" style="position:relative;float:left;width:100%;background-color:gold;">
+<div class="fas" style="position:relative;float:left;width:100%;background-color:orange;">
 <label style="padding:6px;color:black;">Socials</label>
     <div class="fasbox">
 
-<a href="http://facebook.com/sharer/sharer.php?u={{reuest.get_full_path}}"><label id="letter">
-    <img  src='/media/fb.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">Facebook</span>
+<a href="http://facebook.com/augustine adeiza"><label class="tooltip">
+    <img  src='/media/fb.png' alt='facebook' width=25px; height=30px; style = padding:5px;>
+    <br><span class="tooltiptext">www.facebook/augustine adeiza</span>
 </label><a/>
-<a href="#instagram"><label id="letter">
-    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Instagram </span>
+<a href="https://instagram.com/crowns__collection"><label  class="tooltip">
+    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding:4px;>
+    <br><span class="tooltiptext">www.instagram.com/crowns__collection </span>
 </label><a/>
-<a href="#telegram"><label id="letter">
-    <img  src='/media/tele.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Telegram </span>
-</label><a/>
-<label id="letter" title="+234-9022432810">
-    <img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Whatsapp </span>
+
+<div class="tooltip"><img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding:4px;>
+    <span class="tooltiptext">+234-9022432810 </span>
+</div>
+
+<label class="tooltip" >
+    <img  src='/media/call.png' alt='contact' width=25px; height=30px; style = padding:4px;>
+    <span class="tooltiptext" >09022432810 </span>
 </label>
-<label id="letter" title="09022432810">
-    <img  src='/media/call.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails" >Contact </span>
-</label>
-<a href="mailto:obikpidaniel@gmail.com"><label id="letter">
-    <img  src='/media/gmail.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
-    <br><span class="fdetails">Send a mail</span>
+<a href="mailto:austineadeiza@gmail.com"><label class="tooltip">
+    <img  src='/media/gmail.png' alt='send a mail' width=25px; height=30px; style = padding:4px;>
+    <span class="tooltiptext">austineadeiza@gmail.com</span>
 </label><a/>
 
     </div>
 </div>
 <!--footer segment-->
-<div id='fot'>
+<div id='fot' style="position:relative;float:left;">
 <a href="{% url 'home' %}" >
-    <img style="border-radius:3px;" src='/media/q3.png' alt='CrownsCollections.com.ng' width=100%;></a>
-<p style="font-family:'segoe script';" >...defining you by your wears</p>
+    <img style="border-radius:3px;" src='/media/c_logo2.jpg' alt='CrownsCollections.com.ng' width=100%;></a>
+<p style="font-family:'segoe script';" >...Bringing OUT the ROYALTY in YOU</p>
 <br>
 </div>
 

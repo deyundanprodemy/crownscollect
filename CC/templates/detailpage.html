@@ -10,8 +10,8 @@
 background-color:black;
 }
 #mainlogo{
-max-width:140px;
-width:100%;
+width:160px;
+padding-left:3%;
 }
 .catbox{
 background-color:black;
@@ -53,9 +53,9 @@ margin-bottom:6px;
 border-radius:3px;
 }
 #fot{
-background-color:#BA9500;
+background-color:orange;
 color:white;
-font-size:12px;
+font-size:13px;
 text-align:center;
 margin-top:5px;
 }
@@ -128,24 +128,40 @@ padding-bottom:13px;
 font-size:12px;
 font-weight:bold;
 }
+.tooltip{
+possition:relative;
+display:inline-block;
+}
+.tooltip .tooltiptext{
+visibility:hidden;
+position:absolute;
+color:white;
+background-color:orange;
+border-radius:6px;
+z-index:1;
+padding:5px;
+}
+.tooltip:hover .tooltiptext{
+visibility:visible;
+}
 
 </style>
 <body>
 <!--header logo-->
 <div id='headtitle'>
 <a href="{% url 'home' %}" >
-    <img id='mainlogo' src='/media/q4.png' alt='CrownsCollections.com.ng'
-        height=60px;><a/>
+    <img id='mainlogo' src='/media/c_logo.jpg' alt='CrownsCollections.com.ng'
+        height=100px;><a/>
 </div>
 <!--headerlogo ends  -- ad start-->
 
-<img  style="border-radius:3px;" src='/media/qt8.png' alt='CrownsCollections'
+<img  style="border-radius:3px;" src='/media/roy2.png' alt='CrownsCollections'
         width=100%;>
 
 <!--categories-->
 <div class="catbox">
 <a style="text-decoration:none;" href="#Category">
-    <label style="padding:6px; color:#F0C000;text-decoration:none;">Category</label>
+    <label style="padding:6px; color:orange;text-decoration:none;">Category</label>
         </a>
     <div class="category ">
         <a href="{% url 'MaleWears' %}">Male wears</a>
@@ -156,16 +172,14 @@ font-weight:bold;
         <a href="{% url 'Gowns' %}">Gowns</a>
         <a href="{% url 'Hoods' %}">Hoods</a>
         <a href="{% url 'Vintages' %}">Vintages</a>
-        <a href="{% url 'FootWears' %}">foot wears</a>
+        <a href="{% url 'FootWears' %}">Foot wears</a>
     </div>
 </div>
 <!--categories ends-->
 
-<!--Features-->
-
 <!--products details-->
-<div class="fas" style="background-color:gold;">
-<label style="padding:6px;padding-bottom:4px; color:black;">{{details.BrandName}}</label><br>
+<div class="fas" style="background-color:orange;">
+<label style="padding:6px;padding-bottom:4px; color:white;">{{details.BrandName}}</label><br>
 <!--main body-->
 
     <div id='card'>
@@ -188,33 +202,30 @@ font-weight:bold;
     </div>
 
     <!--order..-->
-<div class="fas" style="background-color:gold;">
-<label style="padding:6px;color:black;">Place an order </label>
+<div class="fas" style="background-color:orange;">
+<label style="padding:6px;color:white;">Place an order </label>
     <div class="fasbox">
 
-<a href="#facebook"><label id="letter" title="Crowns Collections">
-    <img  src='/media/fb.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">Facebook</span>
+<a href="http://facebook.com/augustine adeiza"><label class="tooltip">
+    <img  src='/media/fb.png' alt='facebook' width=25px; height=25px; style = padding:5px;>
+    <br><span class="tooltiptext">www.facebook/augustine adeiza</span>
 </label><a/>
-<a href="#instagram"><label id="letter" title="Crowns Collections">
-    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Instagram </span>
+<a href="https://instagram.com/crowns__collection"><label  class="tooltip">
+    <img  src='/media/instagram.png' alt='instagram' width=25px; height=25px; style = padding:4px;>
+    <br><span class="tooltiptext">www.instagram.com/crowns__collection </span>
 </label><a/>
-<a href="#telegram"><label id="letter" title="Crowns Collections">
-    <img  src='/media/tele.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Telegram </span>
-</label><a/>
-<label id="letter" title="+234-9022432810">
-    <img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Whatsapp </span>
+
+<div class="tooltip"><img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=25px; style = padding:4px;>
+    <span class="tooltiptext">+234-9022432810 </span>
+</div>
+
+<label class="tooltip" >
+    <img  src='/media/call.png' alt='contact' width=25px; height=25px; style = padding:4px;>
+    <span class="tooltiptext" >09022432810 </span>
 </label>
-<label id="letter" title="09022432810">
-    <img  src='/media/call.png' alt='contact' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails" >Contact </span>
-</label>
-<a href="mailto:obikpidaniel@gmail.com"><label id="letter">
-    <img  src='/media/gmail.png' alt='send a mail' width=25px; height=30px; style = padding-left:20px;>
-    <br><span class="fdetails">Send a mail</span>
+<a href="mailto:austineadeiza@gmail.com"><label class="tooltip">
+    <img  src='/media/gmail.png' alt='send a mail' width=25px; height=25px; style = padding:4px;>
+    <span class="tooltiptext">austineadeiza@gmail.com</span>
 </label><a/>
 
     </div>
@@ -232,39 +243,19 @@ font-weight:bold;
     <img class="pictureS" src="{{ aval.Pic1.url }}" ><br>
         </div>
     <div id="tit2" style="text-align:center;">
-        <span style="color:white; font-weight:normal;"> {{aval.BrandName}}</span></div>
+        <span style="color:white; font-weight:normal;"> {{aval.BrandName|slice:20}}...</span></div>
     </a>
     </div>
     {% endfor %}
 
     </div>
 </div><br>
-    <!--socials-->
-<label style="padding:6px;color:lightgrey;">Share...</label>
-    <div class="fasbox">
-
-<a href="http://facebook.com/sharer/sharer.php?u={{reuest.get_full_path}}"><label id="letter">
-    <img  src='/media/fb.png' alt='facebook.com/marketitNG' width=25px; height=30px; style = padding-left:15px;>
-    <br><span class="fdetails">Facebook</span>
-</label><a/>
-<a href="#instagram"><label id="letter">
-    <img  src='/media/instagram.png' alt='instagram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Instagram </span>
-</label><a/>
-<a href="#telegram"><label id="letter">
-    <img  src='/media/tele.png' alt='telegram' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Telegram </span>
-</label><a/>
-<label id="letter" title="+234-9022432810">
-    <img  src='/media/whatsapp.jpg' alt='whatsapp' width=25px; height=30px; style = padding-left:14px;>
-    <br><span class="fdetails">Whatsapp </span>
-</label>
-
-    </div>
 
 <!--footer segment-->
-<div id='fot'>
-<p style="font-family:'segoe script';" >...defining you by your wears</p>
+<div id='fot' style="position:relative;float:left;">
+<a href="{% url 'home' %}" >
+    <img style="border-radius:3px;" src='/media/c_logo2.jpg' alt='CrownsCollections.com.ng' width=100%;></a>
+<p style="font-family:'segoe script';" >...Bringing OUT the ROYALTY in YOU</p>
 <br>
 </div>
 

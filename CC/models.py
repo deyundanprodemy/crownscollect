@@ -14,7 +14,7 @@ class CrownsPost(models.Model):
     Slug=models.SlugField(max_length=500,unique=True,)
     Author=models.ForeignKey(User,on_delete=models.CASCADE,related_name='Crowns')
     Updated_on=models.DateTimeField(auto_now=True)
-    Description=models.TextField(blank=True)
+    Description=models.TextField(blank=False)
     Created_on=models.DateTimeField(auto_now_add=True)
     Status=models.IntegerField(choices=STATUS, default=0)
     Price=models.CharField(blank=True, max_length=20)
