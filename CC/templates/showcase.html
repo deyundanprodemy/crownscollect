@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Market-it NG</title>
+</head>
+<style>
+#headtitle{
+background-color:black;
+}
+#mainlogo{
+max-width:150px;
+width:100%;
+}
+#catlogo{
+width:30px;
+height:23px;
+margin-top:3px;
+margin-left:5px;
+margin-right:30px;
+margin-bottom:3px;
+}
+#userlogo{
+width:30px;
+height:30px;
+padding-top:2px;
+margin:auto;
+margin-right:8px;
+margin-bottom:1px;
+float:right;
+}
+#nav{
+background-color:green;
+font-size:14px;
+color:white;
+width:100%;
+padding-top:4px;
+padding-bottom:2px;
+text-align:right;
+float:right;
+}
+#Rnav{
+font-weight:bold;
+color:orange;
+padding-left:25px;
+padding-right:4px;
+font-size:13px;
+float:right;
+}
+#Lnav{
+color:white;
+font-weight:bold;
+font-size:13px;
+float:left;
+padding-left:3px;
+text-shadow:2px 2px 5px #00a500,1px 1px 2px white; "
+}
+#features{
+background-color:rgba(0,0,0,0.5);
+}
+#Ad{
+background-color:white;
+}
+.box{
+background-color:white;
+color:black;
+max-width:400px;
+border-radius:16px;
+padding:15px;
+width:90%;
+margin-left:auto;
+margin-top:6px;
+margin-right:auto;
+box-shadow:2px 2px 5px #00a500,1px 1px 2px white,5px 5px 5px #00a500; "
+}
+#pic{
+padding-top:10px;
+display:table;
+margin-left:auto;
+margin-right:auto;
+}
+body{
+background-color:#f1f1f1;
+font-size:12px;
+font-family:arial;
+}
+#social{
+display:table;
+margin-left:auto;
+margin-right:auto;
+}
+.opt{
+padding-top:8px;
+font-size:12px;
+}
+#put{
+color:black;
+border-color:lightgrey;
+border-width:3px 3px 3px 3px;
+border-radius:4px;
+border-style:solid;
+width:97%;
+height:25px;
+margin-top:6px;
+}
+.put{
+color:black;
+border-width:0px 0.001cm 2px 0.001cm;
+border-color:#00A200;
+width:97%;
+height:20px;
+padding:3px;
+margin-top:-2px;
+margin-bottom:6px;
+}
+.show{
+background-color:green;
+color:white;
+font-size:16px;
+font-weight:bold;
+width:100%;
+padding-top:6px;
+padding-bottom:6px;
+margin-bottom:3px;
+border-radius:3px;
+border:1px solid green;
+}
+
+</style>
+<body>
+<!--header logo-->
+<div id='Ad'>
+<div id='headtitle'>
+<a href="{% url 'post_categories' %}" >
+    <img id='catlogo' src='/media/mkt2.png' alt='categories'><a/>
+
+<a href="{% url 'MyAccount' %}" >
+    <img id='userlogo' src='/media/user.png' alt='user'><a/>
+
+</div>
+    <center>
+<div style="margin-top:-32px;margin-left:20px;">
+    <a href="{% url 'home' %}" >
+    <img id='mainlogo' src='/media/log.png' alt='Marketit.com.ng'
+        height=30px;><a/>
+</div>
+    </center>
+<!--headerlogo ends  -- NAV start-->
+
+{% if request.user.is_active %}
+    <div id="nav" >
+        <label id="Lnav">Hello! {{request.user}}
+        <a href="{% url 'logout' %}"><span id="Rnav">Logout</span></a></label>
+    </div>
+{% endif %}
+{% if request.user.is_active is False %}
+    <div id="nav" >
+        <label id="Lnav">Don't have an account
+        <a href="{% url 'logout' %}"><span id="Rnav">Register</span></a></label>
+    </div>
+{% endif %}
+<!--  NAV ends  AD placement    -->
+
+</div>
+
+
+<div style="background-color:green;color:black;padding:8px;">
+<hr><center>
+<label style="color:white;font-size:14px;text-shadow:2px 2px 5px #00a500,1px 1px 2px white,5px 5px 5px #00a500; "> ...showcase your brand...</label>
+</center>
+<div class="box">
+{% if request.user.is_active %}
+
+
+<form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+    <label for="id_CompanyName">CompanyName: <span style="color:grey";>(E.g Market it plaza)</span></label><br>
+    <input class="put" type="text" name="CompanyName" id="id_CompanyName"  required >
+
+<br>
+
+    <label for="id_BrandName">BrandName: <span style="color:grey";>(E.g HiSense Refrigirator)</span></label>
+    <input class="put" type="text" name="BrandName" id="id_BrandName" required>
+    <br>
+
+    <label for="id_Content">Description: <span style="color:grey";>(E.g features of brand)</span></label>
+    <textarea class="put" style="height:60px;" rows="6" type="text" name="Content" id="id_Content"  required ></textarea>
+
+<br>
+    <label for="id_Contact">Contact: <span style="color:grey";>(E.g mobile No or socials)</span></label>
+    <input class="put" type="text" name="Contact" id="id_Contact" required >
+
+<br>
+    <label for="id_Location">Location: <span style="color:grey";>(E.g 1A Mit plaza)</span></label>
+    <input class="put" type="text" name="Location" id="id_Location"  required>
+    <br>
+
+    <label for="id_Category">Categories: <span style="color:grey";>(E.g Home Appliances)</span></label>
+    <select class="put" style="height:25px;" name="Status" id="id_Category" required >
+    <option value="1"  >Showcase in Home </option>
+    <option value="15"  >Showcase in Job offer</option>
+    <option value="2"  >Showcase in Men's Fashion</option>
+    <option value="3"  >Showcase in Ladies Fashion</option>
+    <option value="4"  >Showcase in Kids corner</option>
+    <option value="5"  >Showcase in Gadgets </option>
+    <option value="6"  >Showcase in Home Appliances </option>
+    <option value="7"  >Showcase in Office Appliances </option>
+    <option value="8"  >Showcase in Electronics </option>
+    <option value="9"  >Showcase in Health & Beauty </option>
+    <option value="10"  >Showcase in Computer & Accessories </option>
+    <option value="11"  >Showcase in Phones & Accessories </option>
+    <option value="12"  >Showcase in Automobile </option>
+    <option value="13"  >Showcase in Skills </option>
+    <option value="14"  >Showcase in Entreprenuer </option>
+    <option value="16"  >Showcase in Services </option>
+    </select>
+
+    <br>
+
+    <label for="id_Price">Price: <span style="color:grey";>(E.g 65,000 or contact me)</span></label>
+    <input class="put" type="text" name="Price" id="id_Price" required>
+    <br>
+<br>
+    <label for="id_Pic1">Image1</label><br>
+    <input type="file" name="Pic1" id="id_Pic1" accept="*image/*" required>
+    <br>
+<br>
+    <label for="id_Pic2">Image2</label><br>
+    <input type="file" name="Pic2" id="id_Pic2" accept="*image/*" required>
+
+<br>
+<br>
+    <label for="id_Pic3">Image3</label><br>
+    <input  type="file" name="Pic3" id="id_Pic3" accept="*image/*" required>
+
+<br>
+<br>
+<br>
+    <button class="show" type="submit">Market it</button>
+</div>
+</form>
+{% endif %}
+
+{% if request.user.is_active is False %}
+    <center style="font-size:13px;">
+        <h3 style="color:black;">Hey! you're not registered'<br>
+    <a style="text-decoration:None;" href="{% url 'register' %}">
+        <span style="color:red;">Register</span></a>
+        to showcase your brands & products here</h3>
+        <br><br>
+    </center>
+<style>
+#userlogo{
+display:None;
+}
+</style>
+{% endif %}
+</div>
+</body>
+</html>
+
+
+
+

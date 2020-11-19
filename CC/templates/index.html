@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market-it NG</title>
+</head>
+<style>
+#headtitle{
+background-color:black;
+}
+.mainlogo{
+max-width:160px;
+width:100%;
+}
+.catlog{
+width:40px;
+height:25px;
+margin-top:3px;
+margin-left:5px;
+margin-right:30px;
+margin-bottom:1px;
+}
+.searchbox{
+width:100%;
+height:30px;
+font-size:14px;
+border-radius:6px;
+margin-top:-14px;
+margin-right:2px;
+margin-bottom:1px;
+border:0.049cm solid #00ae00;
+padding:4px 4px 4px 22px ;
+background-image:url("/media/search icon2.png");
+background-size:22px 22px;
+background-color:white;
+background-attachment:scroll;
+background-repeat:no-repeat;
+box-sizing:border-box;
+}
+.searchlogo{
+display:block;
+width:30px;
+height:25px;
+margin-top:-32px;
+margin-left:5px;
+margin-right:3px;
+margin-bottom:1px;
+float:right;
+}
+
+
+/*animation...................*/
+#slider{
+overflow:hidden;
+background-image:url("/media/adda.png");
+background-size:80% 30px;
+background-attachment:scroll;
+background-position:center;
+background-repeat:no-repeat;
+padding-top:3px;
+margin-top:10px;
+}
+#slider figure{
+position:relative;
+width:500%;
+margin:0;
+left:0;
+padding-top:10px;
+margin-top:-32px;
+margin-bottom:2px;
+animation: 50s slider infinite;
+}
+#slider div{
+padding-top:8px;
+}
+@keyframes slider{
+    0% {left:0%;}
+    20% {left:0%;}
+    25% {left:-100%;}
+    45% {left:-100%;}
+    50% {left:-200%;}
+    70% {left:-200%;}
+    75% {left:-300%;}
+    95% {left:-300%;}
+    100% {left:-400%;}
+    }
+
+@media only screen and (min-width: 800px) {
+  #slider{
+background-size:80% 50px
+}
+    }
+
+#fot{
+background-color:black ;
+color:grey;
+font-size:12px;
+text-align:left;
+padding-left:4px;
+}
+#fot2{
+color:green;
+font-size:10px;
+font-weight:normal;
+text-align:center;
+}
+
+body{
+background-color:#FfFfFf;
+color:green;
+font-size:12px;
+font-family:arial;
+}
+.card{
+background-color:white;
+color:green;
+font-size:12px;
+margin:5px 5px 0px 0px ;
+border-color:#f1f1f1;
+border-style:solid;
+border-width:0.02cm 0.02cm 3px 0.02cm ;
+border-bottom:3px solid #00ae00;
+position:relative;
+float:left;
+overflow:hidden;
+white-space:nowrap;
+}
+.pic{
+background-color:#F1F1F1;
+width:140px;
+height:150px;
+margin-top:1px;
+margin-left:1px;
+margin-right:1px;
+border-radius:6px;
+}
+.pictureS{
+width:140px;
+height:150px;
+padding-right:1px;
+border-radius:6px;
+background-color:white;
+}
+.Special{
+overflow-x: auto;
+overflow-y: hidden;
+white-space:nowrap;
+border-radius:4px;
+margin-top:5px;
+margin-bottom:5px;
+background-color:rgba(0,8,0,0.8);
+}
+#tit2{
+color:green;
+padding:2px;
+padding-bottom:13px;
+font-size:11px;
+}
+.news{color:black;
+margin-top:5px;
+margin-bottom:2px;
+padding-left:6px;
+height:26px;
+font-size:13px;
+border-radius:3px;
+border:1px solid green;
+}
+
+*
+.mySlides {display: none;}
+
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+.dot {
+  display: inline-block;
+  transition: background-color 5.6s ease;
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 3.5s;
+  animation-name: fade;
+  animation-duration: 3.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@media only screen and (max-width: 100px) {
+  .text {font-size: 11px}
+}
+
+.dropd{
+}
+.dropd-search {
+position:absolute;
+top:10px;
+display:none;
+font-align:center;
+width:100%;
+}
+.dropd:hover .dropd-search{
+display:block;
+}
+
+</style>
+
+<!--header logo-->
+<div id='headtitle' style="position:sticky;top:0px;">
+<a href="{% url 'post_categories' %}" >
+    <img class='catlog' src='/media/mkt2.png' alt='categories'><a/>
+<a href="{% url 'home' %}" >
+    <img class='mainlogo' src='/media/log.png' alt='Marketit.com.ng'
+        height=30px;><a/>
+
+    <form action="{% url 'BrandSearch' %}" method="get" enctype="multipart/form-data">
+
+    <div class="dropd">
+        <div><img class="searchlogo" src='/media/search ion.png' ></div>
+    <div class="dropd-search" style="color:white;background-color:black;">
+        <div><input class="searchbox"  type="text" placeholder="Search..." name="q"></div>
+        </div>
+        </div>
+    </form>
+</div>
+<!--headerlogo ends  -- NAV start-->
+
+
+
+{% block content %}
+
+{% endblock %}
+
+<!--footer segment-->
+<div id='fot'><br>.<br>
+<!--Newsletter-->
+
+<div  style="background-color:rgba(10,100,12,0.2);margin-bottom:-5px;
+padding:15px;border-radius:6px;width:99%;box-sizing:border-box;
+box-shadow:1px 1px 3px white, 1px 1px 5px #00a500,
+    1px 1px 7px #00a500, 1px 1px 9px #00a500;">
+    <label style="font-size:12px;color:#00ae00;padding:4px;">* Get daily brands updates </label>
+    <br>
+    <br>
+<form method="POST" >
+    {% csrf_token %}
+
+    <input class="news" style="width:100%;box-sizing:border-box;" type="email" name="toemail"  placeholder="Enter your Email..." ><br>
+
+    <input  style="background-color:green;font-size:12px;width:100%;box-sizing:border-box;border:1px solid green;color:white;padding:6px;"
+            type="submit" value="Subscribe to get Updates"  >
+
+</form>
+</div>
+    <br>
+    <br>
+<center>
+<a href="{% url 'home' %}" ><img src='/media/logo2.png' alt='Marketit.com.ng'
+width=210px; height=25px;></a></center>
+<p id='fot2' style="margin-top:0px;">...taking your brands to the globe<br>
+<span style=color:white;>For enquiries contact:
+<a  style="text-decoration:none;color:green;font-size:10px;" href='mailto:marketitng20@gmail.com'>marketitng20@gmail.com</a></span>
+</p>
+<br>
+<label style="padding:3px 3px 3px 3px;"> <a style="text-decoration:none;color:grey;font-size:11px;"
+          href="{% url 'About-us' %}">About us</a> </label>
+<label style="padding:3px 3px 3px 3px;" > <a style="text-decoration:none;color:grey;font-size:11px;"
+          href="{% url 'Contact-us' %}">Contact us</a> </label>
+<label style="padding:3px 3px 3px 3px;" > <a style="text-decoration:none;color:grey;font-size:11px;"
+          href="{% url 'Privacy-policy' %}">Privacy</a> </label>
+
+<label style="padding:3px 3px 3px 3px;" > <a style="text-decoration:none;color:grey;font-size:11px;"
+          href="{% url 'advertisement' %}">Advertise</a> </label>
+
+<br>
+<br>
+<br>
+<br>
+<center>
+<h1 style="color:#202020;"> Powered By</h1>
+<h3 style="color:#404030;;font-size:10px;margin:-15px 0px 10px 0px;">DeyundanConcept</h3>
+</center>
+
+<br>
+<br>
+<br>
+<br>
+<center>
+<label style="font-size:10px;text-align:center;">&copy 2020</label>
+    </center>
+</div>
+
+</body>
+</html>

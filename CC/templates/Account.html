@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Account</title>
+{% extends 'index.html' %}
+</head>
+{% block content %}
+<style>
+#headtitle{
+background-color:black;
+}
+.search{color:grey;
+width:150px;
+font-size:12px;
+border-radius:13px;
+margin-left:3px;
+}
+#catlogo{
+width:40px;
+height:30px;
+margin-top:3px;
+margin-left:5px;
+margin-right:30px;
+margin-bottom:1px;
+}
+#userlogo{
+width:30px;
+height:30px;
+padding-top:4px;
+margin:auto;
+margin-right:1px;
+margin-bottom:1px;
+float:right;
+}
+
+/*animation...................*/
+#slider{
+overflow:auto;
+background-image:url("/media/add.png");
+background-size:100% 70px;
+background-attachment:scroll;
+}
+#slider figure{
+position:relative;
+width:500%;
+margin:0;
+left:0;
+animation: 50s slider infinite;
+}
+#slider figure img{
+width:20%;
+height:70px;
+float:left;
+}
+@keyframes slider{
+    0% {left:0%;}
+    20% {left:0%;}
+    25% {left:-100%;}
+    45% {left:-100%;}
+    50% {left:-200%;}
+    70% {left:-200%;}
+    75% {left:-300%;}
+    95% {left:-300%;}
+    100% {left:-400%;}
+    }
+
+
+.catbox{
+background-color:black;
+margin-top:5px;
+border-radius:4px;
+}
+body{
+background-color:#FfFfFf;
+color:green;
+font-size:14px;
+font-family:arial;
+}
+.AcUser{
+    color:white;
+    text-transform:uppercase;
+    text-shadow:1px 1px 3px green, 1px 1px 5px #00a500,
+    1px 1px 7px #00a500, 1px 1px 9px #00a500, 1px 1px 11px #00a500;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:3px;
+    padding:1px
+}
+.Ac{
+position:sticky;
+top:0px;
+padding:4px;
+border-radius:4px;
+margin-top:5px;
+background-color:black;
+}
+
+
+.dropdown{
+}
+.dropdown-content {
+position:absolute;
+display:none;
+background-color:black;
+opacity:0.8;
+z-index:1;
+font-size:14px;
+font-weight:bold;
+font-align:center;
+text-decoration:none;
+margin-top:-150px;
+}
+.dropdown:hover .dropdown-content{
+display:block;
+}
+.dropdown-content a{
+background-color:none;
+width:110px;
+display:block;
+font-align:center;
+color:white;
+padding:15px;
+text-decoration:none;
+}
+.dropdown-content a:hover{
+background-color:green;
+}
+.dropdown2{
+}
+.dropdown2-content {
+position:absolute;
+display:none;
+background-color:black;
+opacity:0.8;
+z-index:1;
+font-size:14px;
+font-weight:bold;
+font-align:center;
+text-decoration:none;
+margin-top:-120px;
+margin-left:4px;
+}
+.dropdown2:hover .dropdown2-content{
+display:block;
+}
+.dropdown2-content a{
+background-color:none;
+width:110px;
+display:block;
+font-align:center;
+color:white;
+padding:15px;
+text-decoration:none;
+}
+.dropdown2-content a:hover{
+background-color:red;
+}
+
+
+</style>
+<body>
+
+<!--Account-->
+
+<div   style="background-color:green;height:44px;margin:-27px 0px -7px 0px ;"></div>
+
+<div class="Ac"  style="
+position:sticky;
+top:0px;">
+
+    <img  style="margin-bottom:-3px; "src='/media/mkt2.png' alt='' width=25px; height=20px;>
+    <label class="AcUser">{{request.user}}</label>
+</div>
+
+
+<div class="Special" style="background-color:white;">
+
+{% if request.user.is_staff %}
+
+    {% for MyAccounts in Account %}
+        <div class="card">
+
+    <div class="dropdown">
+        <div class="pic">
+    <img class="pictureS" src="{{ MyAccounts.Pic1.url }}" ><br>
+        </div>
+    <div class="dropdown-content" style="color:white;background-color:black;">
+        <a style="text-decoration:none;" href='{% url "post_detail"  MyAccounts.Slug %}'>View</a>
+        <a style="text-decoration:none;" href='{% url "Edit__Brands"  MyAccounts.Slug %}'>Edit</a>
+        </div>
+        </div>
+
+        <div class="dropdown2">
+            <div style="background-color:red;color:white;padding:4px;margin:4px 4px 4px 4px ;"> Delete</div>
+    <div class="dropdown2-content" style="color:white;background-color:black;">
+        <a style="text-decoration:none;" href='{% url "Delete__Brands"  MyAccounts.Slug %}'>Confirm Delete</a>
+        <a style="text-decoration:none;" href=''>Cancel Delete</a>
+        </div>
+        </div>
+
+
+    <label id="tit2"><span style="color:grey; font-weight:normal;">Brand |</span>
+        <span style="color:#00A500;"> {{MyAccounts.BrandName|slice:16}}..</span></label>
+    </div>
+    {% empty %}
+    <center style="font-size:13px;overflow:None;">
+        <h3 style="color:black;">Hey!
+            <br><span style="color:#00A500;">{{request.user}}</span><br><br>
+            you're yet to showcase your brand</h3>
+    </center>
+<style>
+#fot{
+display:none;
+}
+</style>
+
+    {% endfor %}
+
+{% endif %}
+
+{% if request.user.is_staff is False  %}
+{% if request.user.is_active is True  %}
+    <center style="font-size:13px;">
+        <h3 style="color:black;">Hey!
+            <br><span style="color:#00A500;">{{request.user}}</span><br><br>
+            you don't have a store yet<br>
+    <a style="color:red;text-decoration:None" href="{% url 'IntegratePayment' %}">
+     Upgrade
+        <span style="color:black;"> your account to own a store</span></a></h3>
+    </center>
+<style>
+#fot{
+display:none;
+}
+</style>
+{% endif %}
+{% endif %}
+
+
+{% if request.user.is_active is False %}
+    <center style="font-size:13px;">
+        <h3 style="color:black;">Hey! you aren't registered</h3>
+    <a  style="color:red;text-decoration:None" href="{% url 'register' %}">
+    <h3 style="color:red;text-decoration:None">Register
+        <span style="color:black;"> to get started</span></h3></a>
+    </center>
+<style>
+#fot{
+display:none;
+}
+</style>
+{% endif %}
+
+
+
+</div>
+
+{% endblock %}
+</body>
+</html>

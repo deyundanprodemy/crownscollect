@@ -27,7 +27,7 @@ def PostDetail(request,slug):
     template_name = 'detailpage.html'
     post=get_object_or_404(CrownsPost, Slug=slug)
     avaliable=CrownsPost.objects.all().order_by('Created_on')
-    context = {'avaliable': avaliable,'details':post}
+    context = {'avaliable': avaliable, 'details':post}
 
     return render(request,template_name, context=context)
 
@@ -85,3 +85,4 @@ def FootWears(request):
     context = {'Home': Home, 'FootWears': FootWears}
     return render(request, 'FootWearspage.html', context=context)
 
+#cc

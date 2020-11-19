@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage brands </title>
+{% extends 'index.html' %}
+</head>
+{% block content %}
+<style>
+
+#catlogo{
+width:40px;
+height:30px;
+margin-top:3px;
+margin-left:5px;
+margin-right:30px;
+margin-bottom:1px;
+}
+#userlogo{
+width:30px;
+height:30px;
+padding-top:4px;
+margin:auto;
+margin-right:8px;
+margin-bottom:1px;
+float:right;
+}
+.pic{
+margin-left:auto;
+margin-right:auto;
+width:90%;
+max-width:200px;
+margin-top:6px;
+}
+body{
+background-color:#fff;
+color:black;
+font-size:13px;
+font-weight:bold;
+font-family:arial;
+}
+.put{
+color:black;
+border-width:0px 0.001cm 2px 0.001cm;
+border-color:#00A200;
+width:97%;
+height:20px;
+padding:3px;
+margin-top:-2px;
+margin-bottom:6px;
+}
+.show{
+background-color:green;
+color:white;
+font-size:16px;
+font-weight:bold;
+width:100%;
+padding-top:6px;
+padding-bottom:6px;
+margin-bottom:3px;
+border-radius:3px;
+border:1px solid green;
+}
+.msg{
+color:green;
+font-size:14px;
+border-radius:12px;
+border:1px solid #00ac00;
+margin-left:auto;
+margin-right:auto;
+padding:6px;
+height:100px;
+}
+</style>
+<body>
+
+<center>
+    <br>
+        {% if success_message %}
+        <h3 class="msg">{{success_message}}</h3>
+        {% endif %}
+</center>
+
+    <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+        <label for="id_CompanyName">CompanyName: </label><br>
+    <input class="put" type="text" name="CompanyName" id="id_CompanyName" value="{{form.initial.CompanyName}}" required autofocus>
+    <br>
+<br>
+        <label for="id_BrandName">BrandName: </label><br>
+    <input class="put" type="text" name="BrandName" value="{{form.initial.BrandName}}" id="id_BrandName" required>
+    <br>
+<br>
+        <label for="id_Content">Description: </label><br>
+    <textarea class="put"  style="height:60px;" rows="6" type="text" name="Content" id="id_Content" required >{{form.initial.Content}}</textarea>
+
+<br>
+<br>
+        <label for="id_Contact">Contact: </label><br>
+    <input class="put" type="text" name="Contact" value="{{form.initial.Contact}}" id="id_Contact"  required >
+
+<br>
+<br>
+        <label for="id_Location">Location: </label><br>
+    <input class="put" type="text" name="Location" value="{{form.initial.Location}}" id="id_Location"  required>
+
+<br>
+<br>
+        <label >Categories: </label><br>
+    <div style="color:grey;margin-bottom:-8px;padding:7px;width:200px;">{{form.Status}}</div>
+
+<br>
+<br>
+        <label for="id_Price">Price: </label><br>
+    <input class="put" type="text" name="Price" value="{{form.initial.Price}}" id="id_Price"  required>
+
+<br>
+<br>
+        <label for="id_Pic1">Image1</label><br>
+    <div >
+        <img class="pic" src="{{form.initial.Pic1.url}}">
+    </div>
+    <input type="file" name="Pic1" id="id_Pic1" accept="*image/*" onchange="readURL(this)" >
+
+<br>
+<br>
+        <label for="id_Pic2">Image2</label><br>
+    <div >
+        <img class="pic" src="{{form.initial.Pic2.url}}">
+    </div>
+    <input  type="file" name="Pic2" id="id_Pic2" accept="*image/*" >
+
+<br>
+<br>
+        <label for="id_Pic3">Image3</label><br>
+    <div  id="id_Pic33">
+        <img class="pic" src="{{form.initial.Pic3.url}}">
+    </div>
+    <input type="file" name="Pic3"  id="id_Pic3" accept="*image/*" onchange="readURL(this)" >
+
+<br>
+<br>
+<br>
+    <button class="show" type="submit">Update</button>
+    </form>
+
+<script type="text/javascript">
+    document.getElementById('id_Pic33').onclick=function(event){
+        document.getElementById('id_Pic3').click();
+        };
+        function readURL(input){
+        var reader=new FileReader();
+        reader.onload=function(e) {
+        $('#id_Pic')
+        .attr('src',e.target.result)
+        };
+        reader.readAsDataURL(input.files[0]);
+        }
+</script>
+
+{% endblock %}
+</body>
+</html>
