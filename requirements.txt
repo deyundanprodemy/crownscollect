@@ -18,7 +18,7 @@ Kivy==1.11.1
 Kivy-Garden==0.1.4
 Pillow==7.2.0
 pygame==1.9.6
-Pygments==2.6.1
+Pygments==2.7.4
 python-dateutil==1.5
 pytz==2020.1
 requests==2.24.0
